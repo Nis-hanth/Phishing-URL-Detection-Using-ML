@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+  }
+  
+  header {
+    background: url('/static/cybersecurity-concept-collage-design.jpg') no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+    color: white;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00f0ff;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 16px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+  }
+  
+  .nav-links li a:hover {
+    border-bottom: 2px solid #00f0ff;
+  }
+  
+  .hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px #000;
+    color: #00f0ff;
+  }
+  .hero h1 {
+    animation: zoomZ 3s ease-in-out infinite;
+    display: inline-block;
+    transform-style: preserve-3d;
+  }
+  
+  @keyframes zoomZ {
+    0%, 100% {
+      transform: perspective(500px) scale(1);
+    }
+    50% {
+      transform: perspective(500px) scale(1.2); /* Simulates closer (Z-in) */
+    }
+  }
+  
+  
+  .hero p {
+    margin-top: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px #000;
+  }
+#Prediction{
+  height: 100vh;
+}
+.center-content {
+  text-align: center;
+  margin-top: 20px;
+  border: 2px solid black;
+  height: 80vh;
+  margin-right: 20%;
+  margin-left: 20%;
+  border-radius: 40px;
+  background-color:#00f0ff;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 1);;
+}
+
+#Analysis{
+  height: 100vh;
+}
+.Container-1{
+  height: 40vh;
+  display: flex;
+  margin-left: 27px;
+}
+.box{
+  border: 2px solid black;
+  margin: 15px;
+  width: 30%;
+  height: 40vh;
+}
+.Container-2{
+  height: 40vh;
+  display: flex;
+  margin-top: 9px;
+  margin-left: 27px;
+
+}
+#Performance{
+  height: 100vh;
+}
+.pbox{
+  border-radius: 25px;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+}
+.copyright{
+  text-align: center;
+  color: white;
+  background-color: #242424;
+  padding: 12px;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing URL Detection</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Phishing Websites</div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>      
+        <li><a href="#Dataset">Dataset</a></li>       
+        <li><a href="#Prediction">Prediction</a></li>
+        <li><a href="#Analysis">Analysis</a></li>
+        <li><a href="#Performance">Performance</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1>Detection of phishing websites</h1>
+      <p>USING MACHINE LEARNING</p>
+    </div>
+  </header>
+
+<!-- ############################# Dataset ############################# -->
+<div id="Dataset" class="Dataset">
+    <h1 style="color: #00f0ff; text-align: center;padding: 16px;margin: 5px 0 5px 0;background-color: #000;">Phishing Dataset</h1>
+
+    <div class="scroll-container">
+        <table style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid black; padding: 7px;">S. No.</th>  
+                    {% for col in columns %}
+                        <th style="border: 1px solid black; padding: 7px;">{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        <td style="border: 1px solid black; text-align: center;">{{ loop.index }}</td>
+                        {% for col in columns %}
+                            <td style="border: 1px solid black; text-align: center;">{{ row[col] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ############################# Prediction ####################################### -->
+<div id="Prediction">
+    <h1 style="color: #00f0ff; text-align: center;padding: 16px;margin: 5px 0 5px 0;background-color: #000;">Phishing URL Detection</h1>
+    <div class="center-content">
+        <h3 style="font-size: 30px; margin-top: 50px; color: #000;">⭐⭐⭐⭐⭐ PREDICTION ⭐⭐⭐⭐⭐</h3><br><br>
+        <form action="/predict#Prediction" method="post">
+          <label for="url" style="font-size: 20px;"><b>URL </b></label><br>
+          <input type="text" name="url" id="url" placeholder="Enter URL" style="width: 400px; height: 40px; border-radius: 0;margin-top: 7px;"><br><br>
+          <input type="submit" style="width: 200px;padding: 8px; border-radius: 8px; background-color: white;font-size: 16px; cursor: pointer;"><br><br>
+          {% if result is not none and url %}
+          <a href="https://{{ url }}" target="_blank" style="font-size: 20px;">{{ url }}</a><br><br>
+          
+          {% if result == 1 %}
+            <h2 style="color: red; font-size: 28px;">Website is Not Safe.....</h2>
+          {% else %}
+            <h2 style="color: green; font-size: 28px;">Website is Safe for Use.....</h2>
+          {% endif %}
+        {% endif %}
+        
+
+        </form>
+      </div>
+</div>
+
+<!-- ######################## Data Analysis ####################################### -->
+<div id="Analysis">
+    <h1 style="color: #00f0ff; text-align: center;padding: 16px;margin: 5px 0 5px 0;background-color: #000;">Data Analysis</h1>
+    <div class="Container-1">
+      <div class="box"><img src="{{ url_for('static', filename='count_plot.png') }}" alt="Count Plot" style="height: 100%; width: 100%;object-fit: contain;"></div>
+      <div class="box"><img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Count Plot" style="height: 100%; width: 100%;object-fit: contain;"></div>
+      <div class="box"><img src="{{ url_for('static', filename='boxplot.png') }}" alt="Count Plot" style="height: 100%; width: 100%;object-fit: contain;"></div>
+    </div>
+    <div class="Container-2">
+      <div class="box"><img src="{{ url_for('static', filename='count_ip.png') }}" alt="Count Plot" style="height: 100%; width: 100%;object-fit: contain;"></div>
+      <div class="box"><img src="{{ url_for('static', filename='distplot.png') }}" alt="Count Plot" style="height: 100%; width: 100%;object-fit: contain;"></div>
+      <div class="box"><img src="{{ url_for('static', filename='distplotND.png') }}" alt="Count Plot" style="height: 100%; width: 100%;object-fit: contain;"></div>
+    </div>
+</div>
+
+<!-- ############################# Performance Analysis ####################################### -->
+<div id="Performance">
+<h1 style="color: #00f0ff; text-align: center;padding: 16px;margin: 5px 0 5px 0;background-color: #000;">Model Performance Analysis</h1>
+<div class="Container-1">
+  <div class="box pbox" style="background-color: rgb(224, 121, 73);"><h2>Accuracy Score</h2><br><h3>{{accuracy}}</div>
+  <div class="box pbox" style="background-color: powderblue;"><img src="{{ url_for('static', filename='confusion_matrix.png') }}" alt="Count Plot" style="height: 100%; width: 100%;object-fit: contain;"></div>
+  <div class="box pbox" style="background-color: rgb(91, 215, 103);"><h2>Precision Score</h2><br><h3>{{precision}}</h3></div>
+</div>
+<div class="Container-2">
+  <div class="box pbox" style="background-color: rgb(196, 60, 227);"><h2>Precision Score</h2><br><h3>{{recall}}</h3></div>
+  <div class="box pbox" style="background-color: antiquewhite;"><img src="{{ url_for('static', filename='training vs testing.png') }}" alt="Count Plot" style="height: 100%; width: 100%;object-fit: contain;"></div>
+  <div class="box pbox" style="background-color: rgb(229, 92, 184);"><h2>Precision Score</h2><br><h3>{{f1score}}</h3></div>
+</div>
+</div>
+<!-- ############################# Footer ############################# -->
+<div class="copyright">
+  <h2 style="font-size: 20px;">Copyright © 2027 - All rights reserved</h2>
+</div>
+
+</body>
+</html>
