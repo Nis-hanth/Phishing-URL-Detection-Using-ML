@@ -60,7 +60,7 @@
         <h3 style="font-size: 30px; margin-top: 50px; color: #000;">⭐⭐⭐⭐⭐ PREDICTION ⭐⭐⭐⭐⭐</h3><br><br>
         <form action="/predict#Prediction" method="post">
           <label for="url" style="font-size: 20px;"><b>URL </b></label><br>
-          <input type="text" name="url" id="url" placeholder="Enter URL" style="width: 400px; height: 40px; border-radius: 0;margin-top: 7px;"><br><br>
+          <input type="text" name="url" id="url" placeholder="Enter URL" style="width:70%; height: 40px; border-radius: 8px;margin-top: 7px; padding: 16px; outline: none;"><br><br>
           <input type="submit" style="width: 200px;padding: 8px; border-radius: 8px; background-color: white;font-size: 16px; cursor: pointer;"><br><br>
           {% if result is not none and url %}
           <a href="https://{{ url }}" target="_blank" style="font-size: 20px;">{{ url }}</a><br><br>
