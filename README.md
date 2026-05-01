@@ -178,54 +178,30 @@ http://127.0.0.1:5000/
 ---
 ## 📸 Screenshots  
 
-### 🔐 Authentication  
+## 📸 Screenshots
 
-<p align="center">
-  <img src="screenshots/login.png" width="45%" alt="Login Page"/>
-  <img src="screenshots/register.png" width="45%" alt="Register Page"/>
-</p>
+### 🔐 Login Page
+![Login](Screenshots/login.png)
 
----
+### 📝 Register Page
+![Register](Screenshots/register.png)
 
-### 🏠 Home & Safe Prediction  
+### 🏠 Safe Prediction + Chatbot
+![Safe](Screenshots/safe.png)
 
-<p align="center">
-  <img src="screenshots/safe.png" width="70%" alt="Safe Prediction"/>
-</p>
+### 🚨 Unsafe Detection + Chatbot
+![Unsafe](Screenshots/unsafe.png)
 
-✅ Shows:
-- URL input  
-- Safe prediction result  
-- Chat assistant  
+### 📊 History Page
+![History](Screenshots/history.png)
 
----
+### ⚙️ Settings Page
+![Settings](Screenshots/settings.png)
 
-### 🚨 Unsafe Detection + AI Chatbot  
 
-<p align="center">
-  <img src="screenshots/unsafe.png" width="70%" alt="Unsafe Prediction"/>
-</p>
 
-⚠️ Shows:
-- Unsafe website detection  
-- Automatic chatbot explanation  
-- Voice + AI interaction  
 
----
-
-### ⚙️ Settings Page  
-
-<p align="center">
-  <img src="screenshots/settings.png" width="60%" alt="Settings"/>
-</p>
-
----
-
-### 📜 History Page  
-
-<p align="center">
-  <img src="screenshots/history.png" width="70%" alt="History"/>
-</p>
+<
 
 ## 🔮 Future Enhancements
 
