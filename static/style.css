@@ -1,139 +1,240 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  body, html {
-    height: 100%;
-  }
-  
-  header {
-    background: url('/static/cybersecurity-concept-collage-design.jpg') no-repeat center center/cover;
-    height: 100vh;
-    position: relative;
-    color: white;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: rgba(0, 0, 0, 0.4);
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #00f0ff;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-links li a {
-    text-decoration: none;
-    color: white;
-    padding: 8px 16px;
-    border-bottom: 2px solid transparent;
-    transition: 0.3s;
-  }
-  
-  .nav-links li a:hover {
-    border-bottom: 2px solid #00f0ff;
-  }
-  
-  .hero {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-  }
-  
-  .hero h1 {
-    font-size: 48px;
-    font-weight: bold;
-    text-shadow: 2px 2px 10px #000;
-    color: #00f0ff;
-  }
-  .hero h1 {
-    animation: zoomZ 3s ease-in-out infinite;
-    display: inline-block;
-    transform-style: preserve-3d;
-  }
-  
-  @keyframes zoomZ {
-    0%, 100% {
-      transform: perspective(500px) scale(1);
-    }
-    50% {
-      transform: perspective(500px) scale(1.2); /* Simulates closer (Z-in) */
-    }
-  }
-  
-  
-  .hero p {
-    margin-top: 10px;
-    font-size: 20px;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 5px #000;
-  }
-#Prediction{
-  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
+
+body, html {
+  height: 100%;
+  background: #0a0f1c;
+}
+
+/* HEADER */
+header {
+  background: url('/static/hack.jpeg') no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #00f0ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #00f0ff;
+}
+
+/* HERO */
+.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: #00f0ff;
+  animation: zoomZ 3s infinite;
+}
+
+@keyframes zoomZ {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+/* PREDICTION */
+#Prediction {
+  padding: 40px;
+  background: #0a0f1c;
+}
+
 .center-content {
   text-align: center;
-  margin-top: 20px;
-  border: 2px solid black;
-  height: 80vh;
-  margin-right: 20%;
-  margin-left: 20%;
-  border-radius: 40px;
-  background-color:#00f0ff;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 1);;
+  margin: auto;
+  width: 60%;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #00f0ff, #0077ff);
+  padding: 30px;
+  box-shadow: 0 0 25px rgba(0,240,255,0.5);
 }
 
-#Analysis{
-  height: 100vh;
+/* ANALYSIS */
+#Analysis {
+  padding: 50px 20px;
+  background: #0a0f1c;
 }
-.Container-1{
-  height: 40vh;
-  display: flex;
-  margin-left: 27px;
-}
-.box{
-  border: 2px solid black;
-  margin: 15px;
-  width: 30%;
-  height: 40vh;
-}
-.Container-2{
-  height: 40vh;
-  display: flex;
-  margin-top: 9px;
-  margin-left: 27px;
 
+/* GRID */
+.Container-1,
+.Container-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  padding: 20px;
 }
-#Performance{
-  height: 100vh;
+
+/* WHITE IMAGE CARD ✅ */
+.box {
+  background: white;              /* 🔥 added */
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: 0.3s;
 }
-.pbox{
-  border-radius: 25px;
+
+.box:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* IMAGE (CLEAR & ORIGINAL) */
+.box img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+}
+
+/* PERFORMANCE */
+#Performance {
+  padding: 50px 20px;
+  background: #0a0f1c;
+}
+
+.pbox {
+  border-radius: 20px;
   text-align: center;
-  justify-content: center;
-  flex-direction: column;
-  align-content: center;
+  padding: 20px;
+  background: #111827;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,240,255,0.2);
 }
-.copyright{
+
+/* FOOTER */
+.copyright {
   text-align: center;
   color: white;
-  background-color: #242424;
-  padding: 12px;
+  background-color: #020617;
+  padding: 15px;
+}
+
+/* DATASET SECTION */
+#Dataset {
+  padding: 50px 20px;
+  background: #0a0f1c;
+}
+
+/* TABLE CONTAINER */
+.scroll-container {
+  overflow-x: auto;
+  margin: auto;
+  width: 95%;
+  background: white;                 /* ✅ white background */
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* HEADER */
+th {
+  background: #00f0ff;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+/* ROWS */
+td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ZEBRA STRIPES */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* HOVER EFFECT */
+tr:hover {
+  background-color: #d9faff;
+  transition: 0.2s;
+}
+
+/* ================= CHAT MESSAGE STYLES ================= */
+
+.user-msg {
+  text-align: right;
+  margin: 8px 0;
+  padding: 8px 12px;
+  background: #cceeff;        /* light sky blue */
+  color: #003366;
+  border-radius: 15px 15px 0 15px;
+  display: inline-block;
+  max-width: 75%;
+  float: right;
+  clear: both;
+}
+
+.bot-msg {
+  text-align: left;
+  margin: 8px 0;
+  padding: 8px 12px;
+  background: #ffffff;        /* white bubble */
+  color: #000;
+  border-radius: 15px 15px 15px 0;
+  display: inline-block;
+  max-width: 75%;
+  float: left;
+  clear: both;
+}
+
+.user-msg, .bot-msg {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }

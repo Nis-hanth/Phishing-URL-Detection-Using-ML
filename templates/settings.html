@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Settings</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color: white;
+}
+
+/* CONTAINER */
+.container {
+  width: 420px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(0,255,255,0.3);
+  transform: perspective(1000px);
+  transition: 0.4s;
+}
+
+.container:hover {
+  transform: scale(1.02) rotateY(3deg);
+}
+
+/* HEADINGS */
+h2 {
+  text-align: center;
+  color: #00f0ff;
+}
+
+h3 {
+  margin-top: 25px;
+  color: #00f0ff;
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+input:focus {
+  box-shadow: 0 0 10px #00f0ff;
+}
+
+/* BUTTONS */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* COLORS */
+.btn-primary { background: #00f0ff; color: black; }
+.btn-danger { background: red; color: white; }
+.btn-warning { background: orange; color: black; }
+
+/* TOGGLE SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input { display:none; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 25px;
+  top: 0; left: 0; right: 0; bottom: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background: #00f0ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* SECTIONS */
+.section {
+  margin-top: 20px;
+}
+
+hr {
+  border: 0.5px solid #444;
+  margin: 20px 0;
+}
+
+/* SUCCESS MESSAGE */
+.success {
+  background: rgba(0,255,0,0.15);
+  padding: 10px;
+  border-left: 4px solid lime;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* BACK */
+.back {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.back a {
+  color: #00f0ff;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>⚙️ Settings</h2>
+
+  <!-- ✅ SUCCESS MESSAGE -->
+  {% if request.args.get('msg') %}
+    <div class="success">{{ request.args.get('msg') }}</div>
+  {% endif %}
+
+  <!-- 🔐 CHANGE PASSWORD -->
+  <div class="section">
+    <h3>🔐 Change Password</h3>
+    <form method="POST" action="/change_password">
+      <input type="password" name="old_password" placeholder="Old Password" required>
+      <input type="password" name="new_password" placeholder="New Password" required>
+      <button class="btn-primary">Update Password</button>
+    </form>
+  </div>
+
+  <hr>
+
+  <!-- 🗑️ CLEAR HISTORY -->
+  <div class="section">
+    <h3>🗑️ Clear History</h3>
+    <button class="btn-danger" onclick="confirmDelete()">Delete My History</button>
+  </div>
+
+  <hr>
+
+  <!-- 🔊 VOICE TOGGLE -->
+  <div class="section">
+    <h3>🔊 Voice Assistant</h3>
+    <label class="switch">
+      <input type="checkbox" onchange="toggleVoice(this)">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <hr>
+
+  <!-- 🚪 LOGOUT -->
+  <a href="/logout">
+    <button class="btn-warning">Logout</button>
+  </a>
+
+  <div class="back">
+    <a href="/">⬅ Back to Home</a>
+  </div>
+
+</div>
+
+<!-- JS -->
+<script>
+function confirmDelete() {
+  if (confirm("Are you sure you want to delete your history?")) {
+    window.location.href = "/clear_history";
+  }
+}
+
+function toggleVoice(el) {
+  if (el.checked) {
+    window.location.href = "/voice/on";
+  } else {
+    window.location.href = "/voice/off";
+  }
+}
+</script>
+
+</body>
+</html>

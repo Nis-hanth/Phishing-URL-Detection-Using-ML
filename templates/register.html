@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  overflow: hidden;
+}
+
+/* Floating background circles */
+body::before, body::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: #00f0ff30;
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out;
+}
+body::after {
+  width: 300px;
+  height: 300px;
+  right: 10%;
+  top: 10%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-40px); }
+}
+
+/* Glass Card */
+.box {
+  width: 350px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(15px);
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0,240,255,0.5);
+  transform: perspective(1000px);
+  transition: 0.5s;
+}
+
+.box:hover {
+  transform: perspective(1000px) rotateY(8deg) scale(1.02);
+}
+
+h2 {
+  color: #00f0ff;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+input:focus {
+  box-shadow: 0 0 10px #00f0ff;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg,#00f0ff,#00aaff);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: white;
+}
+
+/* Links */
+a {
+  color: #00f0ff;
+  text-decoration: none;
+}
+
+/* Error Box */
+.error-box {
+  background: rgba(255, 0, 0, 0.15);
+  border-left: 5px solid red;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  color: #ff4d4d;
+  font-weight: bold;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Hidden rules */
+#rules {
+  display: none;
+  font-size: 13px;
+  color: #aaa;
+  text-align: left;
+  margin-top: 5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+  <h2>Create Account</h2>
+
+  <!-- ERROR MESSAGE -->
+  {% if error %}
+    <div class="error-box">
+      ⚠ {{ error }}
+    </div>
+  {% endif %}
+
+  <form method="post">
+
+    <input name="username" placeholder="Username" required>
+
+    <input name="email" type="email" placeholder="Email" required>
+
+    <!-- PASSWORD FIELD -->
+    <div style="position:relative;">
+      <input id="password" name="password" type="password" placeholder="Password"
+             onfocus="showRules()" onblur="hideRules()" required>
+      <span onclick="togglePassword()"
+            style="position:absolute; right:10px; top:12px; cursor:pointer;">👁</span>
+    </div>
+
+    <!-- HIDDEN RULES -->
+    <div id="rules">
+      • Minimum 6 characters<br>
+      • One uppercase letter<br>
+      • One special symbol (@#$!~%^&*)
+    </div>
+
+    <input name="confirm_password" type="password" placeholder="Confirm Password" required>
+
+    <button>Register</button>
+
+  </form>
+
+  <p>Already have account? <a href="/login">Login</a></p>
+
+</div>
+
+<script>
+function togglePassword() {
+  const pass = document.getElementById("password");
+  pass.type = pass.type === "password" ? "text" : "password";
+}
+
+function showRules() {
+  document.getElementById("rules").style.display = "block";
+}
+
+function hideRules() {
+  document.getElementById("rules").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+
