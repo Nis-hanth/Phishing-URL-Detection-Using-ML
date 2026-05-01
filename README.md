@@ -176,6 +176,56 @@ http://127.0.0.1:5000/
 🌐 User-Friendly UI/UX
 
 ---
+## 📸 Screenshots  
+
+### 🔐 Authentication  
+
+<p align="center">
+  <img src="screenshots/login.png" width="45%" alt="Login Page"/>
+  <img src="screenshots/register.png" width="45%" alt="Register Page"/>
+</p>
+
+---
+
+### 🏠 Home & Safe Prediction  
+
+<p align="center">
+  <img src="screenshots/safe.png" width="70%" alt="Safe Prediction"/>
+</p>
+
+✅ Shows:
+- URL input  
+- Safe prediction result  
+- Chat assistant  
+
+---
+
+### 🚨 Unsafe Detection + AI Chatbot  
+
+<p align="center">
+  <img src="screenshots/unsafe.png" width="70%" alt="Unsafe Prediction"/>
+</p>
+
+⚠️ Shows:
+- Unsafe website detection  
+- Automatic chatbot explanation  
+- Voice + AI interaction  
+
+---
+
+### ⚙️ Settings Page  
+
+<p align="center">
+  <img src="screenshots/settings.png" width="60%" alt="Settings"/>
+</p>
+
+---
+
+### 📜 History Page  
+
+<p align="center">
+  <img src="screenshots/history.png" width="70%" alt="History"/>
+</p>
 
 ## 🔮 Future Enhancements
 
